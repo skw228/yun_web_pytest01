@@ -1,0 +1,13 @@
+2020-10-27 16:49:03,932 INFO [root] [__init__.py(<module>:7)] - 测试开始！！！
+2020-10-27 16:49:13,873 INFO [root] [test01_login.py(test_login:20)] - ---------------->执行登陆用例
+2020-10-27 16:49:20,076 INFO [root] [utils.py(is_exists_element:25)] - 失败！no find text is 工作台 element
+2020-10-27 16:49:20,377 INFO [root] [test01_login.py(test_login:20)] - ---------------->执行登陆用例
+2020-10-27 16:49:23,228 INFO [root] [utils.py(is_exists_element:20)] - 成功！
+2020-10-27 16:49:23,386 INFO [root] [test02_add_flow.py(test01_add_gongcheng:28)] - ---------------->执行添加工程类型用例
+2020-10-27 16:49:29,153 INFO [root] [utils.py(is_exists_element:20)] - 成功！
+2020-10-27 16:49:29,178 INFO [root] [test02_add_flow.py(test02_add_chuzi:39)] - ---------------->执行添加出资方式用例
+2020-10-27 16:49:33,070 INFO [root] [utils.py(is_exists_element:20)] - 成功！
+2020-10-27 16:49:33,100 INFO [root] [test02_add_flow.py(test03_add_guanlian:50)] - ---------------->执行添加关联设置用例
+2020-10-27 16:49:40,107 INFO [root] [utils.py(is_exists_element:20)] - 成功！
+2020-10-27 16:49:40,123 INFO [root] [test02_add_flow.py(test04_add_flow:59)] - ---------------->执行添加流程用例
+2020-10-27 16:49:43,479 INFO [root] [utils.py(is_exists_element:20)] - 成功！

@@ -1,0 +1,14 @@
+{
+    "test_login_f2": {
+    "username": "13288889999",
+    "password": "123456",
+    "expect": "",
+    "is_suc": false
+  },
+  "test_login_suc": {
+    "username": "13209182222",
+    "password": "123456",
+    "expect": "",
+    "is_suc": true
+  }
+}
