@@ -1,5 +1,5 @@
 """
-客服云产品页面
+设置页面
 """
 import time
 import app
@@ -17,38 +17,38 @@ class SetPage(BasePage):
         self.set_btn = (By.CLASS_NAME, 'setting')
 
         # 标准按钮
-        self.bz_btn = (By.CSS_SELECTOR,
-                       '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(2) > li > div > span')
+        self.bz_btn = (By.XPATH,
+                       '//*[text()="标准"]')
 
         # 工程类型按钮
         self.gongcheng_btn = (By.CSS_SELECTOR,
-                              '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(2) > li > ul > div:nth-child(1) > a > li > span')
+                              '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(13) > li > ul > div:nth-child(1) > a > li > span')
         # 工程类型名称
         self.gongcheng_name = (By.CSS_SELECTOR,
                                '#app > div > div.main-container > section > div > div > div.row_height.el-row > div.col_right.el-col.el-col-12 > div.form-wrapper > div > form > div:nth-child(2) > div > div > div.inptW.el-input > input')
         # 出资方式按钮
         self.chuzi_btn = (By.CSS_SELECTOR,
-                          '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(2) > li > ul > div:nth-child(3) > a > li > span')
+                          '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(13) > li > ul > div:nth-child(3) > a > li > span')
         # 出资方式名称
         self.chuzi_name = (By.CSS_SELECTOR,
-                           '#app > div > div.main-container > section > div > div > div.row_height.el-row > div.col_right.el-col.el-col-12 > div.form-wrapper > div > form > div:nth-child(2) > div > div > div.inptTe.el-input > input')
+                           '#app > div > div.main-container > section > div > div > div.row_height.el-row > div.col_right.el-col.el-col-12 > div.form-wrapper > div > form > div:nth-child(2) > div > div > div > input')
         # 新增按钮
-        self.add_btn = (By.XPATH, '//*[text()="新增"]')
+        self.add_btn = (By.XPATH, '//*[contains(text(),"新增")]')
         # 删除按钮
         self.del_btn = (By.XPATH, '//*[text()="删除"]')
         # 编辑按钮
-        self.edit_btn = (By.XPATH, '//*[text()="编辑"]')
+        self.edit_btn = (By.XPATH, '//*[contains(text(),"编辑")]')
         # 保存按钮
-        self.save_btn = (By.XPATH, '//*[text()="保存"]')
+        self.save_btn = (By.XPATH, '//*[contains(text(),"保存")]')
         # 关联设置
         self.guanlian_btn = (By.CSS_SELECTOR,
-                             '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(2) > li > ul > div:nth-child(10) > a > li > span')
+                             '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(13) > li > ul > div:nth-child(10) > a > li > span')
         # 点击部门类型
         self.guanlian_bumen = (By.CSS_SELECTOR,
                                '#app > div > div.main-container > section > div > div > div > div.col_right.el-col.el-col-12 > div.form-wrapper > form > div > div:nth-child(1) > div > div > div > div > input')
         # 选择部门类型
         self.guanlian_bumen01 = (By.CSS_SELECTOR,
-                                 'body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li > span')
+                                 'body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li')
         # 点击工程类型
         self.guanlian_gongcheng = (By.CSS_SELECTOR,
                                    '#app > div > div.main-container > section > div > div > div > div.col_right.el-col.el-col-12 > div.form-wrapper > form > div > div:nth-child(2) > div > div > div > div > input')
@@ -139,6 +139,7 @@ class SetHandle(BaseHandle):
     # 点击设置按钮
     def click_set_btn(self):
         self.set_page.find_set_btn().click()
+        # self.click_btn(self.set_page.find_set_btn())
 
     # 点击标准按钮
     def click_bz_btn(self):
@@ -238,3 +239,5 @@ class SetProxy:
         self.set_handle.click_guanlian_chuzi()
         self.set_handle.click_save_btn()
         time.sleep(3)
+
+

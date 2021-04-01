@@ -1,5 +1,5 @@
 """
-客服云登录页面
+流程页面
 """
 import time
 
@@ -16,15 +16,15 @@ class FlowPage(BasePage):
         # 流程中心按钮
         self.flow = (By.XPATH, '//*[contains(text(),"流程中心")]')
         # 流程配置按钮
-        self.flow01 = (By.CSS_SELECTOR, '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div > li > ul > div:nth-child(1) > a > li > span')
+        self.flow01 = (By.CSS_SELECTOR, '#app > div > div.sidebar-container.shadow-md-x.el-scrollbar > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > div:nth-child(22) > li > ul > div:nth-child(1) > a > li > span')
         # 新建按钮
-        self.add_btn = (By.XPATH, '//*[text()="新建"]')
+        self.add_btn = (By.XPATH, '//*[contains(text(),"新建")]')
         # 工程类型输入框
         self.gongcheng = (By.CSS_SELECTOR, 'body > div.el-dialog__wrapper > div > div.el-dialog__body > div > form:nth-child(2) > div > div:nth-child(2) > div > div > div > div > input')
         # 选择工程类型
         self.gongcheng01 = (By.XPATH, f'//*[text()="{app.gongchengname}"]')
         # 出资方式输入框
-        self.chuzi = (By.CSS_SELECTOR, 'body > div.el-dialog__wrapper > div > div.el-dialog__body > div > form:nth-child(2) > div > div:nth-child(3) > div > div > div > div > input')
+        self.chuzi = (By.CSS_SELECTOR, 'body > div.el-dialog__wrapper > div > div.el-dialog__body > div > form:nth-child(2) > div > div:nth-child(3) > div > div > div > div.el-input.el-input--suffix > input')
         # 选择出资方式
         self.chuzi01 = (By.XPATH, f'//*[text()="{app.chuziname}"]')
         # 绑定部门输入框
@@ -139,4 +139,5 @@ class FlowProxy:
         self.flow_handle.click_chuzi()
         # self.flow_handle.click_bumen()
         self.flow_handle.click_yes()
+        time.sleep(2)
 

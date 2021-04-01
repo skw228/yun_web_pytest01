@@ -3,12 +3,14 @@
     "username": "13288889999",
     "password": "123456",
     "expect": "",
-    "is_suc": false
+    "is_suc": false,
+      "ass": "工作台"
   },
   "test_login_suc": {
     "username": "13209182222",
     "password": "123456",
     "expect": "",
-    "is_suc": true
+    "is_suc": true,
+    "ass": "工作台"
   }
 }
