@@ -3,6 +3,7 @@ import os
 import json
 import time
 import allure
+import yaml
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import logging
@@ -69,6 +70,31 @@ def load_json(file_path):
             test_dict.append(list(i.values()))
         print(test_dict)
     return test_dict
+
+
+# 读取yaml文件
+def load_yaml(file_path):
+    login_list = []
+    # 打开文件
+    with open(file_path, "r", encoding="utf-8") as f:
+        # 读取
+        data = yaml.safe_load(f)
+        for i in data.values():
+            login_list.append(tuple(i.values()))
+    print(login_list)
+    return login_list
+
+
+# 读取yaml文件
+def load_yamll(file_path, thin):
+    login_list = []
+    # 打开文件
+    with open(file_path, "r", encoding="utf-8") as f:
+        # 读取
+        data = yaml.safe_load(f)
+        for i in data.values():
+            login_list.append((i.get(thin)))
+    return str(login_list)
 
 
 # 4.编写初始化日志的代码

@@ -1,5 +1,7 @@
-2021-04-01 14:43:27,877 INFO [root] [__init__.py(<module>:7)] - 测试开始！！！
-2021-04-01 14:43:47,936 INFO [root] [test01_login.py(test_login:18)] - ---------------->执行登陆用例
-2021-04-01 14:43:55,568 INFO [root] [utils.py(is_exists_element:29)] - 失败！no find text is 工作台 element
-2021-04-01 14:43:57,979 INFO [root] [test01_login.py(test_login:18)] - ---------------->执行登陆用例
-2021-04-01 14:44:05,254 INFO [root] [utils.py(is_exists_element:29)] - 失败！no find text is 工作台 element
+2021-04-12 15:53:50,194 INFO [root] [__init__.py(<module>:7)] - 测试开始！！！
+2021-04-12 15:54:01,886 INFO [root] [test01_login.py(test_login:22)] - ---------------->执行登陆用例
+2021-04-12 15:54:06,282 INFO [root] [utils.py(is_exists_element:25)] - 成功！
+2021-04-12 15:54:06,338 INFO [root] [test03_slsq.py(test_int_slsq:27)] - ---------------->进入受理申请
+2021-04-12 15:54:09,488 INFO [root] [utils.py(is_exists_element:25)] - 成功！
+2021-04-12 15:54:09,509 INFO [root] [test03_slsq.py(test_slsq:36)] - ---------------->执行受理申请
+2021-04-12 15:54:29,046 INFO [root] [utils.py(is_exists_element:25)] - 成功！

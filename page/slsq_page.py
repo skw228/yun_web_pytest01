@@ -5,181 +5,109 @@ import time
 import app
 from selenium.webdriver.common.by import By
 from base.base import BasePage, BaseHandle
+from page.pageElements import PageElements
 
 
 # 对象库层
 class SlsqPage(BasePage):
     def __init__(self):
         super().__init__()
-        # 新增按钮
-        self.xz = (By.CSS_SELECTOR,
-                   '#app > div > div.main-container > section > div > div > div.col_left.el-col.el-col-24 > div.query > div.edit_btn > button.el-button.el-button--primary')
-        # 申报单位输入框
-        self.sbdw = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(1) > div > div > div > div > button')
-        # 新增申报单位按钮
-        self.xzsbdw = (By.CSS_SELECTOR,
-                       '#app > div > div.main-container > section > div > div > div:nth-child(3) > div > div.el-dialog__body > div.dialogTable-wrap > div.el-col.el-col-24 > form > div > button:nth-child(4)')
-        # 单位名称输入框
-        self.dwmc = (By.CSS_SELECTOR,
-                     'body > div.el-dialog__wrapper > div > div.el-dialog__body > form > div > div:nth-child(1) > div > div > div.el-input > input')
-        # 新增联系人按钮
-        self.xzlxr = (
-            By.CSS_SELECTOR,
-            'body > div.el-dialog__wrapper > div > div.el-dialog__body > div:nth-child(2) > div > button')
-        # 默认按钮
-        self.mr = (By.CSS_SELECTOR,
-                   'body > div.el-dialog__wrapper > div > div.el-dialog__body > div:nth-child(3) > div > div.el-table__body-wrapper.is-scrolling-none > table > tbody > tr > td.el-table_35_column_138 > div > label > span.el-radio__input > span')
-        # 联系人输入框
-        self.lxr = (By.CSS_SELECTOR,
-                    'body > div.el-dialog__wrapper > div > div.el-dialog__body > div:nth-child(3) > div > div.el-table__body-wrapper.is-scrolling-none > table > tbody > tr > td.el-table_17_column_83 > div > div > input')
-        # 联系电话输入框
-        self.lxdh = (By.CSS_SELECTOR,
-                     'body > div.el-dialog__wrapper > div > div.el-dialog__body > div:nth-child(3) > div > div.el-table__body-wrapper.is-scrolling-none > table > tbody > tr > td.el-table_17_column_84 > div > div > input')
-        # 保存单位按钮
-        self.bcdw = (By.CSS_SELECTOR,
-                     'body > div.el-dialog__wrapper > div > div.el-dialog__footer > span > button.el-button.el-button--primary')
-        # 客户名称
-        self.khmc = (By.XPATH, f'//*[text()="{app.dwmc}"]')
-
-        # 第一个客户
-        self.kh = (By.CSS_SELECTOR,
-                   '#app > div > div.main-container > section > div > div > div:nth-child(3) > div > div.el-dialog__body > div.dialogTable-wrap > div.el-table.el-table--fit.el-table--enable-row-hover.el-table--enable-row-transition > div.el-table__body-wrapper.is-scrolling-none > table > tbody > tr:nth-child(1)')
-        # 客户确定按钮
-        self.khqd = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div:nth-child(3) > div > div.el-dialog__footer > span > button.el-button.el-button--primary > span')
-        # 工程地点
-        self.gcdd = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(5) > div > div > div.el-input.el-input--suffix > input')
-        # 地址输入框
-        self.dz = (By.CSS_SELECTOR,
-                   'body > div.el-dialog__wrapper > div > div.el-dialog__body > div > div.search-box > div.mgl8.el-input.el-input--suffix > input')
-        # 地址确定按钮
-        self.dzqd = (By.CSS_SELECTOR,
-                     'body > div.el-dialog__wrapper > div > div.el-dialog__footer > span > button.el-button.el-button--primary')
-        # 业务部门选择框
-        self.ywbm = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(7) > div > div > div > div > input')
-        # 选择业务部门
-        self.xzywbm = (By.CSS_SELECTOR,
-                       'body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li > span')
-        # 工程类型选择框
-        self.gclx = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(8) > div > div > div > div > input')
-        # 选择工程类型
-        self.xzgclx = (By.XPATH, '//*[text()="skw01"]')
-
-        # 出资方式选择框
-        self.czfs = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(9) > div > div > div > div > input')
-        # 选择出资方式
-        self.xzczfs = (By.XPATH, '//*[text()="skw01出资"]')
-
-        # 规范范围选择框
-        self.gffw = (By.CSS_SELECTOR,
-                     '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div.form-wrap > form > div > div:nth-child(11) > div > div > div > div > input')
-        # 选择规范范围
-        self.xzgffw = (By.CSS_SELECTOR,
-                       'body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li.el-select-dropdown__item.hover')
-        # 推送按钮
-        self.ts = (By.CSS_SELECTOR,
-                   '#app > div > div.main-container > section > div > div > div.col_right.el-col.el-col-24 > div > div:nth-child(1) > form > div.control-wrap.el-row > div.right.el-col.el-col-12 > div > button.el-button.el-button--default')
 
     # 找到新增按钮
     def find_xz(self):
-        return self.find_elt(self.xz)
+        return self.find_elt(PageElements.xz)
 
     # 找到申报单位输入框
     def find_sbdw(self):
-        return self.find_elt(self.sbdw)
+        return self.find_elt(PageElements.sbdw)
 
     # 找到新增申报单位按钮
     def find_xzsbdw(self):
-        return self.find_elt(self.xzsbdw)
+        return self.find_elt(PageElements.xzsbdw)
 
     # 找到单位名称输入框
     def find_dwmc(self):
-        return self.find_elt(self.dwmc)
+        return self.find_elt(PageElements.dwmc)
 
     # 找到新增联系人按钮
     def find_xzlxr(self):
-        return self.find_elt(self.xzlxr)
+        return self.find_elt(PageElements.xzlxr)
 
     # 找到默认按钮
     def find_mr(self):
-        return self.find_elt(self.mr)
+        return self.find_elt(PageElements.mr)
 
     # 找到联系人输入框
     def find_lxr(self):
-        return self.find_elt(self.lxr)
+        return self.find_elt(PageElements.lxr)
 
     # 找到联系电话输入框
     def find_lxdh(self):
-        return self.find_elt(self.lxdh)
+        return self.find_elt(PageElements.lxdh)
 
     # 找到保存单位按钮
     def find_bcdw(self):
-        return self.find_elt(self.bcdw)
+        return self.find_elt(PageElements.bcdw)
 
     # 找到客户名称
     def find_khmc(self):
-        return self.find_elt(self.khmc)
+        return self.find_elt(PageElements.khmc)
 
     # 找到第一个客户
     def find_kh(self):
-        return self.find_elt(self.kh)
+        return self.find_elt(PageElements.kh)
 
     # 找到客户确定按钮
     def find_khqd(self):
-        return self.find_elt(self.khqd)
+        return self.find_elt(PageElements.khqd)
 
     # 找到工程地点
     def find_gcdd(self):
-        return self.find_elt(self.gcdd)
+        return self.find_elt(PageElements.gcdd)
 
     # 找到地址输入框
     def find_dz(self):
-        return self.find_elt(self.dz)
+        return self.find_elt(PageElements.dz)
 
     # 找到地址确定按钮
     def find_dzqd(self):
-        return self.find_elt(self.dzqd)
+        return self.find_elt(PageElements.dzqd)
 
     # 找到业务部门选择框
     def find_ywbm(self):
-        return self.find_elt(self.ywbm)
+        return self.find_elt(PageElements.ywbm)
 
     # 找到选择业务部门
     def find_xzywbm(self):
-        return self.find_elt(self.xzywbm)
+        return self.find_elt(PageElements.xzywbm)
 
     # 找到工程类型选择框
     def find_gclx(self):
-        return self.find_elt(self.gclx)
+        return self.find_elt(PageElements.gclx)
 
     # 找到工程类型
     def find_xzgclx(self):
-        return self.find_elt(self.xzgclx)
+        return self.find_elt(PageElements.xzgclx)
 
     # 找到出资方式选择框
     def find_czfs(self):
-        return self.find_elt(self.czfs)
+        return self.find_elt(PageElements.czfs)
 
     # 找到出资方式
     def find_xzczfs(self):
-        return self.find_elt(self.xzczfs)
+        return self.find_elt(PageElements.xzczfs)
 
     # 找到规范范围选择框
     def find_gffw(self):
-        return self.find_elt(self.gffw)
+        return self.find_elt(PageElements.gffw)
 
     # 找到规范范围
     def find_xzgffw(self):
-        return self.find_elt(self.xzgffw)
+        return self.find_elt(PageElements.xzgffw)
 
     # 找到推送按钮
     def find_ts(self):
-        return self.find_elt(self.ts)
+        return self.find_elt(PageElements.ts)
 
 
 # 操作层
@@ -311,5 +239,5 @@ class SlsqProxy:
         time.sleep(1)
         self.slsq_handle.click_czfs()
         time.sleep(1)
-        self.slsq_handle.click_ts()
-        time.sleep(3)
+        # self.slsq_handle.click_ts()
+        # time.sleep(3)
