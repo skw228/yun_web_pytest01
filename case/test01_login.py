@@ -16,7 +16,7 @@ class TestLogin:
 
     # 定义测试方法
     @allure.severity(allure.severity_level.CRITICAL)
-    # @allure.step("登录测试")
+    @allure.step("登录测试")
     @pytest.mark.parametrize("username, password, ass", load_yaml(GET_PATH + "./data/login.yaml"))
     def test_login(self, username, password, ass):
         logging.info("---------------->执行登陆用例")

@@ -94,7 +94,8 @@ def load_yamll(file_path, thin):
         data = yaml.safe_load(f)
         for i in data.values():
             login_list.append((i.get(thin)))
-    return str(login_list)
+    print(login_list)
+    return login_list[0]
 
 
 # 4.编写初始化日志的代码

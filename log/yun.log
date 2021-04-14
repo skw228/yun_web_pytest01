@@ -1,7 +1,4 @@
-2021-04-12 15:53:50,194 INFO [root] [__init__.py(<module>:7)] - 测试开始！！！
-2021-04-12 15:54:01,886 INFO [root] [test01_login.py(test_login:22)] - ---------------->执行登陆用例
-2021-04-12 15:54:06,282 INFO [root] [utils.py(is_exists_element:25)] - 成功！
-2021-04-12 15:54:06,338 INFO [root] [test03_slsq.py(test_int_slsq:27)] - ---------------->进入受理申请
-2021-04-12 15:54:09,488 INFO [root] [utils.py(is_exists_element:25)] - 成功！
-2021-04-12 15:54:09,509 INFO [root] [test03_slsq.py(test_slsq:36)] - ---------------->执行受理申请
-2021-04-12 15:54:29,046 INFO [root] [utils.py(is_exists_element:25)] - 成功！
+2021-04-14 15:56:31,444 INFO [root] [__init__.py(<module>:7)] - 测试开始！！！
+2021-04-14 15:56:42,086 INFO [root] [test01_login.py(test_login:22)] - ---------------->执行登陆用例
+2021-04-14 15:56:46,340 INFO [root] [utils.py(is_exists_element:25)] - 成功！
+2021-04-14 15:56:46,480 INFO [root] [test02_slsq.py(test_slsq:16)] - ---------------->执行受理申请

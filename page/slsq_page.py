@@ -1,9 +1,7 @@
 """
-受理申请页面
+受理申请
 """
 import time
-import app
-from selenium.webdriver.common.by import By
 from base.base import BasePage, BaseHandle
 from page.pageElements import PageElements
 
@@ -68,6 +66,10 @@ class SlsqPage(BasePage):
     # 找到地址输入框
     def find_dz(self):
         return self.find_elt(PageElements.dz)
+
+    # 找到一点点
+    def find_ydd(self):
+        return self.find_elt(PageElements.ydd)
 
     # 找到地址确定按钮
     def find_dzqd(self):
@@ -167,9 +169,10 @@ class SlsqHandle(BaseHandle):
     # 点击工程地点，输入地址，点击确定
     def click_gcdd(self, dz):
         self.slsq_page.find_gcdd().click()
-        time.sleep(0.5)
         self.input_text(self.slsq_page.find_dz(), dz)
-        time.sleep(2)
+        time.sleep(3)
+        self.slsq_page.find_ydd().click()
+        time.sleep(0.5)
         self.slsq_page.find_dzqd().click()
 
     # 点击业务部门并选择
@@ -180,13 +183,11 @@ class SlsqHandle(BaseHandle):
     # 点击工程类型并选择
     def click_gclx(self):
         self.slsq_page.find_gclx().click()
-        time.sleep(0.5)
         self.slsq_page.find_xzgclx().click()
 
     # 点击出资方式并选择
     def click_czfs(self):
         self.slsq_page.find_czfs().click()
-        time.sleep(0.5)
         self.slsq_page.find_xzczfs().click()
 
     # 找到规范范围并选择
@@ -208,9 +209,7 @@ class SlsqProxy:
     def test_slsq(self, dz):
         time.sleep(1)
         self.slsq_handle.click_xz()
-        time.sleep(1)
         self.slsq_handle.click_sbdw()
-        time.sleep(2)
         # self.slsq_handle.click_xzsbdw()
         # time.sleep(1)
         # self.slsq_handle.input_dwmc(dwmc)
@@ -228,16 +227,9 @@ class SlsqProxy:
         # self.slsq_handle.click_khmc()
         # time.sleep(1)
         self.slsq_handle.click_kh()
-        time.sleep(1)
         self.slsq_handle.click_khqd()
-        time.sleep(1)
         self.slsq_handle.click_gcdd(dz)
-        time.sleep(1)
         self.slsq_handle.click_ywbm()
-        time.sleep(1)
         self.slsq_handle.click_gclx()
-        time.sleep(1)
         self.slsq_handle.click_czfs()
-        time.sleep(1)
-        # self.slsq_handle.click_ts()
-        # time.sleep(3)
+        self.slsq_handle.click_ts()
